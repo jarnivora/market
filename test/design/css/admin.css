@@ -1,0 +1,17 @@
+.admin-nav {
+    list-style-type: none;
+}
+.admin-nav li.active {
+    background: #3e7cb4;
+}
+.admin-nav li a {
+    display: block;
+    font-size: 11pt;
+    padding: 15px 10px;
+}
+.admin-nav li.active a {
+    color: white;
+}
+.admin-nav li ul {
+    list-style-type: none;
+}
