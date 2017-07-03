@@ -51,8 +51,24 @@ function insert_product($form){
  return $this->db->insert('shop_produk', $form);
 }
 function get_product(){
-	$sql = "SELECT * FROM shop_produk inner join shop_kategori on shop_produk.id_kategori = shop_kategori.id_kategori inner join shop_media on shop_produk.id_produk = shop_media.id_produk";
+	$sql = "SELECT * FROM shop_produk
+          inner join shop_merk
+          on shop_produk.id_merk = shop_merk.id_merk 
+          inner join shop_kategori 
+          on shop_produk.id_kategori = shop_kategori.id_kategori 
+          inner join shop_media 
+          on shop_produk.id_produk = shop_media.id_produk 
+          group by shop_produk.id_produk";
 	return $this->db->query($sql)->result();
+}
+function get_detail_product($id){
+  $sql = "SELECT * FROM shop_produk 
+          inner join shop_merk
+          on shop_produk.id_merk = shop_merk.id_merk
+          -- inner join shop_spek
+          -- on shop_produk.id_produk = shop_spek.id_produk
+          where id_produk = ?";
+  return $this->db->query($sql,$id)->result();
 }
 function get_product_update($id){
 	$sql = "SELECT * FROM shop_produk where id_produk = ?";

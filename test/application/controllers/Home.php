@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 	function product($id){
 		$object=array(
 			'data'=> array(
-			'get_product'=> $this->model_admin->get_product($id),
+			'get_product'=> $this->model_admin->get_detail_product($id),
 			'get_kategori'=> $this->model_admin->get_kategori(),
 				),
 			);

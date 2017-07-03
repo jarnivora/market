@@ -134,7 +134,7 @@
 
               <li><a href="#"> <?= $tampil->nama_kategori ?></a></li>
 
-              <? $i++; endforeach; ?>
+              <?php $i++; endforeach; ?>
             </ul>
           </div>
           <h3 class="subtitle">Bestsellers</h3>
@@ -319,7 +319,7 @@
                 </div>
               </div>
             </div>
-          <? $i++; endforeach; ?>
+          <?php $i++; endforeach; ?>
           </div>
           <!-- Categories Product Slider End -->
           
@@ -340,7 +340,7 @@
             <div class="product-thumb">
               <div class="image"><a href="<?= base_url()?>home/product/<?= $tampil->id_produk ?>"><img src="<?= base_url($tampil->path.$tampil->gambar_produk) ?>" style="width: 200px; height: 200px;" alt="<?= $tampil->nama_produk ?>" title="<?= $tampil->nama_produk ?>" class="img-responsive" /></a></div>
               <div class="caption">
-                <h4><a href="<?= base_url('product') ?>"><?= $tampil->nama_produk ?></a></h4>
+                <h4><a href="<?= base_url()?>home/product/<?= $tampil->id_produk ?>"><?= $tampil->nama_produk ?></a></h4>
                 <p class="price"> Rp <?= $tampil->hrgjual_produk ?> </p>
               </div>
               <div class="button-group">
@@ -351,7 +351,7 @@
                 </div>
               </div>
             </div>
-          <? $i++; endforeach; ?>
+          <?php $i++; endforeach; ?>
           </div>
           <!-- Brand Product Slider End -->
 

@@ -133,16 +133,16 @@
               <div class="col-sm-6">
                 <div class="image"><img class="img-responsive" itemprop="image" id="zoom_01" src="<?= base_url() ?>design/image/product/macbook_air_1-350x350.jpg" title="Laptop Silver black" alt="Laptop Silver black" data-zoom-image="<?= base_url() ?>design/image/product/macbook_air_1-500x500.jpg" /> </div>
                 <div class="center-block text-center"><span class="zoom-gallery"><i class="fa fa-search"></i> Click image for Gallery</span></div>
-                <div class="image-additional" id="gallery_01"> <a class="thumbnail" href="#" data-zoom-image="<?= base_url() ?>design/image/product/macbook_air_1-500x500.jpg" data-image="<?= base_url() ?>design/image/product/macbook_air_1-350x350.jpg" title="Laptop Silver black"> <img src="<?= base_url() ?>design/image/product/macbook_air_1-66x66.jpg" title="Laptop Silver black" alt = "Laptop Silver black"/></a> <a class="thumbnail" href="#" data-zoom-image="<?= base_url() ?>design/image/product/macbook_air_4-500x500.jpg" data-image="<?= base_url() ?>design/image/product/macbook_air_4-350x350.jpg" title="Laptop Silver black"><img src="i<?= base_url() ?>design/mage/product/macbook_air_4-66x66.jpg" title="Laptop Silver black" alt="Laptop Silver black" /></a> <a class="thumbnail" href="#" data-zoom-image="<?= base_url() ?>design/image/product/macbook_air_2-500x500.jpg" data-image="<?= base_url() ?>design/image/product/macbook_air_2-350x350.jpg" title="Laptop Silver black"><img src="<?= base_url() ?>design/image/product/macbook_air_2-66x66.jpg" title="Laptop Silver black" alt="Laptop Silver black" /></a> <a class="thumbnail" href="#" data-zoom-image="<?= base_url() ?>design/image/product/macbook_air_3-500x500.jpg" data-image="<?= base_url() ?>design/image/product/macbook_air_3-350x350.jpg" title="Laptop Silver black"><img src="<?= base_url() ?>design/image/product/macbook_air_3-66x66.jpg" title="Laptop Silver black" alt="Laptop Silver black" /></a> </div>
+                <div class="image-additional" id="gallery_01"> <a class="thumbnail" href="#" data-zoom-image="<?= base_url() ?>design/image/product/macbook_air_1-500x500.jpg" data-image="<?= base_url() ?>design/image/product/macbook_air_1-350x350.jpg" title="Laptop Silver black"></a> </div>
               </div>
               <div class="col-sm-6">
                 <ul class="list-unstyled description">
-                  <li><b>Brand:</b> <a href="#"><span itemprop="brand">Apple</span></a></li>
-                  <li><b>Product Code:</b> <span itemprop="mpn">Product 17</span></li>
+                  <li><b>Brand:</b> <a href="#"><span itemprop="brand"><?= $tampil->nama_merk ?></span></a></li>
+                  <!-- <li><b>Product Code:</b> <span itemprop="mpn">Product 17</span></li> -->
                   <li><b>Availability:</b> <span class="instock">In Stock</span></li>
                 </ul>
                 <ul class="price-box">
-                  <li class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span class="price-old">$1,202.00</span> <span itemprop="price">$1,142.00<span itemprop="availability" content="In Stock"></span></span></li>
+                  <li class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="price">Rp <?= $tampil->hrgjual_produk ?><span itemprop="availability" content="In Stock"></span></span></li>
                   <li></li>
                   <li>Ex Tax: $950.00</li>
                 </ul>
@@ -188,30 +188,10 @@
             <div class="tab-content">
               <div itemprop="description" id="tab-description" class="tab-pane active">
                 <div>
-                  <p><b>Intel Core 2 Duo processor</b></p>
-                  <p>Powered by an Intel Core 2 Duo processor at speeds up to 2.16GHz, the new MacBook is the fastest ever.</p>
-                  <p><b>1GB memory, larger hard drives</b></p>
-                  <p>The new MacBook now comes with 1GB of memory standard and larger hard drives for the entire line perfect for running more of your favorite applications and storing growing media collections.</p>
-                  <p><b>Sleek, 1.08-inch-thin design</b></p>
-                  <p>MacBook makes it easy to hit the road thanks to its tough polycarbonate case, built-in wireless technologies, and innovative MagSafe Power Adapter that releases automatically if someone accidentally trips on the cord.</p>
-                  <p><b>Built-in iSight camera</b></p>
-                  <p>Right out of the box, you can have a video chat with friends or family,2 record a video at your desk, or take fun pictures with Photo Booth</p>
+                  <p><?= $tampil->desk_produk ?></p>
                 </div>
               </div>
               <div id="tab-specification" class="tab-pane">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <td colspan="2"><strong>Memory</strong></td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>test 1</td>
-                      <td>8gb</td>
-                    </tr>
-                  </tbody>
-                  </table>
                 <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -220,7 +200,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>No. of Cores</td>
+                      <td><!-- <?= $tampil->spek_produk ?> --></td>
                       <td>1</td>
                     </tr>
                   </tbody>
