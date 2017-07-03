@@ -121,21 +121,14 @@
     </nav>
   </div>
 
-
+  <?php $i=1; foreach($data['get_product'] as $tampil): ?>
   <div id="container">
     <div class="container">
-      <!-- Breadcrumb Start
-      <ul class="breadcrumb">
-        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<?= base_url('home') ?>" itemprop="url"><span itemprop="title"><i class="fa fa-home"></i></span></a></li>
-        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<?= base_url('category') ?>" itemprop="url"><span itemprop="title">Electronics</span></a></li>
-        <li itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="<?= base_url('product') ?>" itemprop="url"><span itemprop="title">Laptop Silver black</span></a></li>
-      </ul>-->
-      <!-- Breadcrumb End-->
       <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-sm-9">
           <div itemscope itemtype="http://schema.org/Product">
-           <h1 class="subtitle">Laptop Silver black</h1>
+           <h1 class="subtitle"><?= $tampil->nama_produk ?></h1>
             <div class="row product-info">
               <div class="col-sm-6">
                 <div class="image"><img class="img-responsive" itemprop="image" id="zoom_01" src="<?= base_url() ?>design/image/product/macbook_air_1-350x350.jpg" title="Laptop Silver black" alt="Laptop Silver black" data-zoom-image="<?= base_url() ?>design/image/product/macbook_air_1-500x500.jpg" /> </div>
@@ -234,6 +227,7 @@
                 </table>
               </div>
             </div>
+            
             <h3 class="subtitle">Related Products</h3>
             <div class="owl-carousel related_pro">
               <div class="product-thumb">
@@ -365,6 +359,7 @@
       </div>
     </div>
   </div>
+  <? $i++; endforeach; ?>
   <!--Footer Start-->
   <footer id="footer">
     <div class="fpart-first">

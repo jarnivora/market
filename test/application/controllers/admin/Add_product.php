@@ -31,6 +31,7 @@ class Add_product extends CI_Controller {
 			$this->form_validation->set_rules('stok', '', 'required');
 			$this->form_validation->set_rules('merk', '', 'required');
 			$this->form_validation->set_rules('tax', '', 'required');
+			$this->form_validation->set_rules('mytext[]', '', 'required');
 			// $this->form_validation->set_rules('foto', '', 'required');
 			$this->form_validation->set_rules('desc', '', 'required');
 			if ($this->form_validation->run() == FALSE) {
@@ -40,23 +41,7 @@ class Add_product extends CI_Controller {
  
 			} 
 			else{
-		$img_config = array(
-                                'upload_path' => 'foto_produk/',
-                                'allowed_types' => 'jpg|png',
-                                'max_size' => '1000000',
-                                'overwrite' => FALSE,
-                            );
-		$this->upload->initialize($img_config);
-		if (!$this->upload->do_upload('foto')) {
-			echo "Upload Gagal";
-			echo $this->upload->display_errors();
-		}else{
-			$data = array(
-               'upload_data' => $this->upload->data() ,
-            );
 			$data_item_foto = array(
-			'gambar_produk' => $data['upload_data']['file_name'],
-			'path' => 'foto_produk/',
 			'nama_produk' => $this->input->post('nama_produk'),
 			'id_kategori' => $this->input->post('cat'),
 			'hrgjual_produk' => $this->input->post('jual'),
@@ -69,11 +54,51 @@ class Add_product extends CI_Controller {
 			'id_merk' => $this->input->post('merk'),
 			'pajak' => $this->input->post('tax'),
 			'desk_produk' => $this->input->post('desc'),
-			'spek_produk' => $this->input->post('spek'),
 			);
-			$this->model_admin->insert_product($data_item_foto);
+			
+
+			if(!empty($_FILES['mytext2']['name'])){
+            $filesCount = count($_FILES['mytext2']['name']);
+            foreach($_FILES as $key => $value)
+            for($i = 0; $i < $filesCount; $i++){
+                $_FILES['mytext2']['name'] = $value['name'][$i];
+                $_FILES['mytext2']['type'] = $value['type'][$i];
+                $_FILES['mytext2']['tmp_name'] = $value['tmp_name'][$i];
+                $_FILES['mytext2']['error'] = $value['error'][$i];
+                $_FILES['mytext2']['size'] = $value['size'][$i];
+
+                $uploadPath = 'foto_produk/';
+                $config['upload_path'] = $uploadPath;
+                $config['allowed_types'] = 'gif|jpg|png';
+
+                $this->upload->initialize($config);
+
+                if($this->upload->do_upload('mytext2')){
+                    $fileData = $this->upload->data();
+                    $id_produk = $this->model_admin->getid() + 1;
+                    $uploadData = array (
+                    	'gambar_produk' => $fileData['file_name'],
+                    	'id_produk' => $id_produk,
+                    	'path' => 'foto_produk/'
+                    	); 
+                }
+            
+            if(!empty($uploadData)){
+                $this->model_admin->tambahfoto($uploadData);
+            }else{
+            echo "Upload Gagal";
+			echo $this->upload->display_errors();
+			die;
+            }
+		}
+		$this->model_admin->insert_product($data_item_foto);
+			$id=$this->db->insert_id();
+			$form=$this->input->post('mytext');
+				foreach ($form as $a) {
+					$this->model_admin->tambahspek($id, $a);
+			}
 		$this->session->set_flashdata('notification', '<div class="alert alert-success">Success</div>');
-		redirect('admin/add_product','refresh');
+		// redirect('admin/add_product','refresh');
 			} // end of verify 
 		}
 	

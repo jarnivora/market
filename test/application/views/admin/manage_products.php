@@ -294,7 +294,6 @@
                         <?= $this->session->flashdata('notification') ?>
                         <table id="mainTable" class="table table-striped">
                             <thead><tr>
-                                <th>Image</th>
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Category</th>
@@ -305,7 +304,6 @@
                                  <?php $i=1; foreach($data['getdata'] as $resUser): ?>
                            
                             <tr>
-                                <td><img src="<img class="img-responsive" src="<?= base_url($resUser->path.$resUser->gambar_produk)?>" alt=""></td>
                                 <td><?= $resUser->id_produk ?></td>
                                 <td><?= $resUser->nama_produk ?></td>
                                 <td><?= $resUser->nama_kategori ?></td>

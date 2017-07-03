@@ -39,12 +39,19 @@ function get_brand(){
 }
 // end controller supplier
 
+
+
+
+
+
+
+
 // controller product
 function insert_product($form){
  return $this->db->insert('shop_produk', $form);
 }
 function get_product(){
-	$sql = "SELECT * FROM shop_produk join shop_kategori where shop_produk.id_kategori = shop_kategori.id_kategori";
+	$sql = "SELECT * FROM shop_produk inner join shop_kategori on shop_produk.id_kategori = shop_kategori.id_kategori inner join shop_media on shop_produk.id_produk = shop_media.id_produk";
 	return $this->db->query($sql)->result();
 }
 function get_product_update($id){
@@ -60,7 +67,31 @@ function delete_product($id)
    $this->db->where('id_produk', $id);
    return $this->db->delete('shop_produk');
 }
+function tambahspek($id, $a){
+  return $this->db->insert('shop_spek', array(
+    'id_produk' => $id,
+    'nama_spek' => $a));
+}
+function tambahfoto($form){
+  return $this->db->insert('shop_media', $form);
+}
+function getid(){
+  $sql = 'SELECT id_produk FROM shop_produk ORDER BY id_produk DESC LIMIT 1';
+  return $this->db->query($sql)->row()->id_produk;
+
+}
 // end controller product
+
+
+
+
+
+
+
+
+
+
+
 
  //controller kategori
 function insert_kategori($form){
@@ -84,6 +115,16 @@ function delete_kategori($id)
    return $this->db->delete('shop_kategori');
 }
   //end controller kategori
+
+
+
+
+
+
+
+
+
+
 
 //controller merk
 function insert_merk($form){

@@ -18,7 +18,48 @@
         <!-- Custom styles for this template -->
         <link href="<?= base_url() ?>design/admin/assets/css/style.css" rel="stylesheet">
         <link href="<?= base_url() ?>design/admin/assets/plugins/summernote/summernote.css" rel="stylesheet" />
+        <script src="<?= base_url() ?>design/admin/assets/js/jquery-2.1.4.min.js"></script>
 
+<script type="text/javascript">
+$(document).ready(function() {
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    var add_button      = $(".add_field_button"); //Add button ID
+
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div ><input type="text" name="mytext[]" class="form-control"/><a href="" class="remove_field" id="focusedinput">Remove</a></div>'); //add input box
+        }
+    });
+
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_wrap2"); //Fields wrapper
+    var add_button      = $(".add_field_button2"); //Add button ID
+
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div ><input type="file" name="mytext2[]" class="form-control"/><a href="" class="remove_field2" id="focusedinput">Remove</a></div>'); //add input box
+        }
+    });
+
+    $(wrapper).on("click",".remove_field2", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
 <script>
 
 function startCalc()
@@ -325,9 +366,13 @@ clearInterval(interval);
                                 </div>
                                 <div class="col-md-12">
                                     <label for="name">Spesification Product</label>
-                                    <input type="text" class="form-control" id="name" name="spek">
+                                    <div class="input_fields_wrap">
+                                        <div>
+                                        <input type="text" name="mytext[]" class="form-control"/><a href="" class="add_field_button">Tambah</a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="sup">Supplier</label>
                                     <select name="sup" id="sup" class="form-control">
                                     <?php $i=1; foreach($data['getdata'] as $resUser): ?>
@@ -336,7 +381,7 @@ clearInterval(interval);
                                     </select>
                                 </div>
                                 
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <label for="purchase">Purchase</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
@@ -368,7 +413,7 @@ clearInterval(interval);
                                         <input type="number" id="stock" name="stok" class="form-control" min="0">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label for="brand">Brand</label>
                                     <select name="merk" id="merk" class="form-control">
                                         <?php $i=1; foreach($data['getdata3'] as $resUser): ?>
@@ -376,7 +421,7 @@ clearInterval(interval);
                                     <?php $i++; endforeach; ?>   
                                     </select>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <label for="tax">Tax</label>
                                     <div class="input-group">
                                         <span class="input-group-addon">Rp</span>
@@ -385,7 +430,11 @@ clearInterval(interval);
                                 </div>
                                 <div class="col-md-12">
                                     <label for="photos">Photos</label>
-                                    <input type="file" name="foto">
+                                    <div class="input_fields_wrap2">
+                                        <div>
+                                        <input type="file" name="mytext2[]" class="form-control"/><a href="" class="add_field_button2">Tambah</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="col-md-12">
                                     <label for="desc">Description</label>
@@ -422,7 +471,7 @@ clearInterval(interval);
 
 
         <!-- js placed at the end of the document so the pages load faster -->
-        <script src="<?= base_url() ?>design/admin/assets/js/jquery-2.1.4.min.js"></script>
+        
         <script src="<?= base_url() ?>design/admin/assets/js/bootstrap.min.js"></script>
         <script src="<?= base_url() ?>design/admin/assets/js/metisMenu.min.js"></script>
         <script src="<?= base_url() ?>design/admin/assets/js/jquery.slimscroll.min.js"></script>

@@ -130,26 +130,11 @@
           <h3 class="subtitle">Categories</h3>
           <div class="box-category">
             <ul id="cat_accordion">
-              <li><a href="<?= base_url('category') ?>">Mask </a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Regulator </a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Bouyancy Compensation Device</a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Wetsuit & Drysuit </a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Weight belt </a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Fins </a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Tank</a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Gauges </a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Dive Computer </a></span>
-              </li>
-              <li><a href="<?= base_url('category') ?>">Torch</a></span>
-              </li>
+              <?php $i=1; foreach($data['get_kategori'] as $tampil): ?>
+
+              <li><a href="#"> <?= $tampil->nama_kategori ?></a></li>
+
+              <? $i++; endforeach; ?>
             </ul>
           </div>
           <h3 class="subtitle">Bestsellers</h3>
@@ -302,14 +287,29 @@
             </div>
           </div>
           <!-- Banner End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <!-- Categories Product Slider Start -->
-          <h3 class="subtitle">Health &amp; Beauty - <a class="viewall" href="<?= base_url('category') ?>">view all</a></h3>
+          <h3 class="subtitle">Wetsuit &amp; Drysuit - <a class="viewall" href="<?= base_url('category') ?>">view all</a></h3>
           <div class="owl-carousel latest_category_carousel">
+          <?php $i=1; foreach($data['get_product'] as $tampil): ?>
             <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/iphone_6-200x200.jpg" alt="Hair Care Cream for Men" title="Hair Care Cream for Men" class="img-responsive" /></a></div>
+              <div class="image"><a href="<?= base_url()?>home/product/<?= $tampil->id_produk ?>"><img src="<?= base_url($tampil->path.$tampil->gambar_produk) ?>" style="width: 200px; height: 200px;" alt="<?= $tampil->nama_produk ?>" title="<?= $tampil->nama_produk ?>" class="img-responsive" /></a></div>
               <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Hair Care Cream for Men</a></h4>
-                <p class="price"> $134.00 </p>
+                <h4><a href="<?= base_url('product') ?>"><?= $tampil->nama_produk ?></a></h4>
+                <p class="price"> Rp <?= $tampil->hrgjual_produk ?> </p>
               </div>
               <div class="button-group">
                 <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
@@ -319,86 +319,29 @@
                 </div>
               </div>
             </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/nikon_d300_4-200x200.jpg" alt="Bed Head Foxy Curls Contour Cream" title="Bed Head Foxy Curls Contour Cream" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Bed Head Foxy Curls Contour Cream</a></h4>
-                <p class="price"> $88.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href=""><img src="<?= base_url() ?>design/image/product/macbook_5-200x200.jpg" alt="Shower Gel Perfume for Women" title="Shower Gel Perfume for Women" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Shower Gel Perfume for Women</a></h4>
-                <p class="price"> <span class="price-new">$95.00</span> <span class="price-old">$99.00</span> <span class="saving">-4%</span> </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick="cart.add('61');"><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick="wishlist.add('61');"><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick="compare.add('61');"><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_4-200x200.jpg" alt="Perfumes for Women" title="Perfumes for Women" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Perfumes for Women</a></h4>
-                <p class="price"> $85.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_3-200x200.jpg" alt="Make Up for Naturally Beautiful Better" title="Make Up for Naturally Beautiful Better" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Make Up for Naturally Beautiful Better</a></h4>
-                <p class="price"> $123.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_2-200x200.jpg" alt="Pnina Tornai Perfume" title="Pnina Tornai Perfume" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Pnina Tornai Perfume</a></h4>
-                <p class="price"> $110.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
+          <? $i++; endforeach; ?>
           </div>
           <!-- Categories Product Slider End -->
+          
+
+
+
+
+
+
+
+
+
+
           <!-- Brand Product Slider Start-->
-          <h3 class="subtitle">Apple - <a class="viewall" href="<?= base_url('category') ?>">view all</a></h3>
+          <h3 class="subtitle">Fins - <a class="viewall" href="<?= base_url('category') ?>">view all</a></h3>
           <div class="owl-carousel latest_brands_carousel">
+            <?php $i=1; foreach($data['get_product'] as $tampil): ?>
             <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/iphone_6-200x200.jpg" alt="Hair Care Cream for Men" title="Hair Care Cream for Men" class="img-responsive" /></a></div>
+              <div class="image"><a href="<?= base_url()?>home/product/<?= $tampil->id_produk ?>"><img src="<?= base_url($tampil->path.$tampil->gambar_produk) ?>" style="width: 200px; height: 200px;" alt="<?= $tampil->nama_produk ?>" title="<?= $tampil->nama_produk ?>" class="img-responsive" /></a></div>
               <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Hair Care Cream for Men</a></h4>
-                <p class="price"> $134.00 </p>
+                <h4><a href="<?= base_url('product') ?>"><?= $tampil->nama_produk ?></a></h4>
+                <p class="price"> Rp <?= $tampil->hrgjual_produk ?> </p>
               </div>
               <div class="button-group">
                 <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
@@ -408,148 +351,18 @@
                 </div>
               </div>
             </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/nikon_d300_4-200x200.jpg" alt="Bed Head Foxy Curls Contour Cream" title="Bed Head Foxy Curls Contour Cream" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Bed Head Foxy Curls Contour Cream</a></h4>
-                <p class="price"> $88.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_5-200x200.jpg" alt="Shower Gel Perfume for Women" title="Shower Gel Perfume for Women" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Shower Gel Perfume for Women</a></h4>
-                <p class="price"> <span class="price-new">$95.00</span> <span class="price-old">$99.00</span> <span class="saving">-4%</span> </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_4-200x200.jpg" alt="Perfumes for Women" title="Perfumes for Women" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Perfumes for Women</a></h4>
-                <p class="price"> $85.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_3-200x200.jpg" alt="Make Up for Naturally Beautiful Better" title="Make Up for Naturally Beautiful Better" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Make Up for Naturally Beautiful Better</a></h4>
-                <p class="price"> $123.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_2-200x200.jpg" alt="Pnina Tornai Perfume" title="Pnina Tornai Perfume" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Pnina Tornai Perfume</a></h4>
-                <p class="price"> $110.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/hp_3-200x200.jpg" alt="Casio Youth Series Marine Watch" title="Casio Youth Series Marine Watch" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Casio Youth Series Marine Watch</a></h4>
-                <p class="price"> $1,300.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/hp_2-200x200.jpg" alt="Mens Bracelet Watch" title="Mens Bracelet Watch" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Mens Bracelet Watch</a></h4>
-                <p class="price"> $1,800.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/ipod_classic_1-200x200.jpg" alt="Portable Mp3 Player" title="Portable Mp3 Player" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Portable Mp3 Player</a></h4>
-                <p class="price"> $122.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_pro_1-200x200.jpg" alt=" Strategies for Acquiring Your Own Laptop " title=" Strategies for Acquiring Your Own Laptop " class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>"> Strategies for Acquiring Your Own Laptop </a></h4>
-                <p class="price"> <span class="price-new">$1,400.00</span> <span class="price-old">$1,900.00</span> <span class="saving">-26%</span> </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_air_1-200x200.jpg" alt="Laptop Silver black" title="Laptop Silver black" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Laptop Silver black</a></h4>
-                <p class="price"> <span class="price-new">$1,142.00</span> <span class="price-old">$1,202.00</span> <span class="saving">-5%</span> </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
+          <? $i++; endforeach; ?>
           </div>
           <!-- Brand Product Slider End -->
+
+
+
+
+
+
+
+
+
           <!-- Brand Logo Carousel Start-->
           <div id="carousel" class="owl-carousel nxt">
             <div class="item text-center"> <a href="#"><img src="<?= base_url() ?>design/image/product/apple_logo-100x100.jpg" alt="Palm" class="img-responsive" /></a> </div>
