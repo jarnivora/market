@@ -139,41 +139,15 @@
           </div>
           <h3 class="subtitle">Bestsellers</h3>
           <div class="side-item">
+            <?php $i=1; foreach($data['get_product'] as $tampil): ?>
             <div class="product-thumb clearfix">
               <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/apple_cinema_30-50x50.jpg" alt="Brand Fashion Cotton T-Shirt" title="Brand Fashion Cotton T-Shirt" class="img-responsive" /></a></div>
               <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Brand Fashion Cotton T-Shirt</a></h4>
-                <p class="price"><span class="price-new">$110.00</span> <span class="price-old">$122.00</span> <span class="saving">-10%</span></p>
+                <h4><a href="<?= base_url('product') ?>"><?= $tampil->nama_produk ?></a></h4>
+                <p class="price"><span class="price-new">Rp <?= $tampil->hrgjual_produk ?></span> <span class="price-old">Rp <?= $tampil->hrgjual_produk*110/100?></span> <span class="saving">-10%</span></p>
               </div>
             </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/iphone_1-50x50.jpg" alt="iPhone5" title="iPhone5" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">iPhone5</a></h4>
-                <p class="price"> $123.20 </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_1-50x50.jpg" alt="Ideapad Yoga 13-59341124 Laptop" title="Ideapad Yoga 13-59341124 Laptop" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Ideapad Yoga 13-59341124 Laptop</a></h4>
-                <p class="price"> $2.00 </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/sony_vaio_1-50x50.jpg" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Xitefun Causal Wear Fancy Shoes</a></h4>
-                <p class="price"> <span class="price-new">$902.00</span> <span class="price-old">$1,202.00</span> <span class="saving">-25%</span> </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/FinePix-Long-Zoom-Camera-50x50.jpg" alt="FinePix S8400W Long Zoom Camera" title="FinePix S8400W Long Zoom Camera" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">FinePix S8400W Long Zoom Camera</a></h4>
-                <p class="price">$122.00</p>
-              </div>
-            </div>
+            <?php $i++; endforeach; ?>
           </div>
         </aside>
         <!-- Left Part End-->
@@ -189,93 +163,34 @@
           </div>
           <!-- Slideshow End-->
 
+
+
+
+
+
+
+
+
+
           <!-- Featured Product Start-->
           <h3 class="subtitle">Featured</h3>
           <div class="owl-carousel product_carousel">
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/apple_cinema_30-200x200.jpg" alt="Brand Fashion Cotton T-Shirt" title="Brand Fashion Cotton T-Shirt" class="img-responsive" /></a></div>
+          <?php $i=1; foreach($data['get_product'] as $tampil): ?>
+            <div class="product-thumb">
+              <div class="image"><a href="<?= base_url()?>home/product/<?= $tampil->id_produk ?>"><img src="<?= base_url($tampil->path.$tampil->gambar_produk) ?>" style="width: 200px; height: 200px;" alt="<?= $tampil->nama_produk ?>" title="<?= $tampil->nama_produk ?>" class="img-responsive" /></a></div>
               <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Brand Fashion Cotton T-Shirt</a></h4>
-                <p class="price"><span class="price-new">$110.00</span><span class="price-old">$122.00</span><span class="saving">-10%</span></p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick="cart.add('42');"><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Compare this Product" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/samsung_tab_1-200x200.jpg" alt="Aspire Ultrabook Laptop" title="Aspire Ultrabook Laptop" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Aspire Ultrabook Laptop</a></h4>
-                <p class="price"> <span class="price-new">$230.00</span> <span class="price-old">$241.99</span> <span class="saving">-5%</span> </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick="cart.add('49');"><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Compare this Product" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/sony_vaio_1-200x200.jpg" alt="Xitefun Causal Wear Fancy Shoes" title="Xitefun Causal Wear Fancy Shoes" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Xitefun Causal Wear Fancy Shoes</a></h4>
-                <p class="price"> <span class="price-new">$902.00</span> <span class="price-old">$1,202.00</span> <span class="saving">-25%</span> </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick="cart.add('46');"><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Compare this Product" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/macbook_1-200x200.jpg" alt="Ideapad Yoga 13-59341124 Laptop" title="Ideapad Yoga 13-59341124 Laptop" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Ideapad Yoga 13-59341124 Laptop</a></h4>
-                <p class="price"> $2.00 </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick="cart.add('43');"><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Compare this Product" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/iphone_1-200x200.jpg" alt="iPhone5" title="iPhone5" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">iPhone5</a></h4>
-                <p class="price"> $123.20 </p>
+                <h4><a href="<?= base_url('product') ?>"><?= $tampil->nama_produk ?></a></h4>
+                <p class="price"> Rp <?= $tampil->hrgjual_produk ?> </p>
               </div>
               <div class="button-group">
                 <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
                 <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Compare this Product" onClick=""><i class="fa fa-exchange"></i></button>
+                  <button type="button" data-toggle="tooltip" title="Add to wishlist" onClick=""><i class="fa fa-heart"></i></button>
+                  <button type="button" data-toggle="tooltip" title="Add to compare" onClick=""><i class="fa fa-exchange"></i></button>
                 </div>
               </div>
             </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="<?= base_url('product') ?>"><img src="<?= base_url() ?>design/image/product/canon_eos_5d_1-200x200.jpg" alt="Long Sleeve Shirt Fashion Men" title="Long Sleeve Shirt Fashion Men" class="img-responsive" /></a></div>
-              <div class="caption">
-                <h4><a href="<?= base_url('product') ?>">Long Sleeve Shirt Fashion Men</a></h4>
-                <p class="price"> <span class="price-new">$98.00</span> <span class="price-old">$122.00</span> <span class="saving">-20%</span> </p>
-              </div>
-              <div class="button-group">
-                <button class="btn-primary" type="button" onClick=""><span>Add to Cart</span></button>
-                <div class="add-to-links">
-                  <button type="button" data-toggle="tooltip" title="Add to Wish List" onClick=""><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="Compare this Product" onClick=""><i class="fa fa-exchange"></i></button>
-                </div>
-              </div>
-            </div>
+          <?php $i++; endforeach; ?>
           </div>
           <!-- Featured Product End-->
 
